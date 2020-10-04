@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-  <title>NASA Photo of the Day</title>
+  <title>NASA Astronomy Picture of the Day</title>
 </head>
 
 <body class="bg-dark">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,97 +35,112 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
 
   <!-- MODAL -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div id="photoDetailsModal" class="modal fade" tabindex="-1" aria-labelledby="photoDetailsModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">The Reappearance of Mars - September 11, 2020</h5>
+          <h5 class="modal-title" id="photoDetailsModalLabel">The Reappearance of Mars - September 11, 2020</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
-          alt="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg">
-          <p>Mars reappears just beyond the Moon's dark limb in this stack of sharp video frames captured on September 6. Of course to reappear it had to disappear in the first place. It did that over an hour earlier when the sunlit southern edge of the waning gibbous Moon passed in front of the Red Planet as seen from Maceio, Brazil. The lunar occultation came as the Moon was near apogee, about 400,000 kilometers away. Mars was almost 180 times more distant. It was the fourth lunar occultation of Mars visible from planet Earth in 2020. Visible from some southern latitudes, the fifth lunar occultation of Mars in 2020 will take place on October 3 when the Moon and Mars are both nearly opposite the Sun in planet Earth's sky.</p>
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top" alt="">
+          <p>Mars reappears just beyond the Moon's dark limb in this stack of sharp video frames captured on September
+            6. Of course to reappear it had to disappear in the first place. It did that over an hour earlier when the
+            sunlit southern edge of the waning gibbous Moon passed in front of the Red Planet as seen from Maceio,
+            Brazil. The lunar occultation came as the Moon was near apogee, about 400,000 kilometers away. Mars was
+            almost 180 times more distant. It was the fourth lunar occultation of Mars visible from planet Earth in
+            2020. Visible from some southern latitudes, the fifth lunar occultation of Mars in 2020 will take place on
+            October 3 when the Moon and Mars are both nearly opposite the Sun in planet Earth's sky.</p>
           <p class="mt-4"><small>Copyright: David Duarte</small></p>
         </div>
         <div class="modal-footer">
-          
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-          class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-          class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div> -->
-
   <div class="container-fluid">
-
-    <p class="display-3 my-3 text-center text-light"><strong>NASA Photo of the Day</strong></p>
+    <p class="display-3 my-3 text-center text-light"><strong>Astronomy Picture of the Day</strong></p>
     <div class="row my-3">
       <div class="col-md">
         <form>
           <div class="row">
             <div class="col-md-5 offset-md-2">
-              <input type="date" class="form-control" id="date_picker" placeholder="Select a date">
+              <input type="date" class="form-control" id="date_picker" placeholder="Choose a date">
             </div>
             <div class="col-md-3 text-center">
-              <button type="submit" class="btn btn-primary mb-2">Show me the photo!</button>
+              <button type="submit" class="btn btn-primary mb-2">Show me a picture!</button>
             </div>
           </div>
         </form>
       </div>
 
     </div>
-    <div class="row">
-      <div class="col-md d-flex justify-content-center">
+    <div id="photoList" class="row">
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
         <div class="card">
           <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
-            alt="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg">
+            alt="Mars Reappearance" title="Mars Reappearance">
         </div>
       </div>
-      <div class="col-md d-flex justify-content-center">
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
         <div class="card">
           <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
-            alt="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg">
+            alt="Mars Reappearance" title="Mars Reappearance" type="button" data-toggle="modal"
+            data-target="#photoDetailsModal">
         </div>
       </div>
-      <div class="col-md d-flex justify-content-center">
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
         <div class="card">
           <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
-            alt="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg">
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+        <div class="card">
+          <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+            alt="Mars Reappearance" title="Mars Reappearance">
         </div>
       </div>
     </div>
   </div>
-
-
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
 
 </body>
 
@@ -140,23 +155,6 @@
   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 <script>
-
-  var url = "https://api.nasa.gov/planetary/apod";
-  var data = {
-    date: "2020-09-12",
-    api_key: "DEMO_KEY",
-  }
-
-  $.ajax({
-    url: url,
-    type: 'get',
-    dataType: 'json',
-    data: data,
-    success: function (data, status) {
-      console.log(data);
-    }
-  });
-
 
   // SAMPLES, both photo and video available
   // TODO: Are there other formats?
@@ -182,11 +180,57 @@
   //                 "url": "https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte1024.jpg"
   // }
 
+  // <div class="col-xl-3 col-md-4 p-2 d-flex justify-content-center">
+  //   <div class="card">
+  //     <img src="https://apod.nasa.gov/apod/image/2009/MarsReappearanceDuarte.jpg" class="card-img-top"
+  //       alt="Mars Reappearance" title="Mars Reappearance">
+  //   </div>
+  // </div>
+
+  // TODO: Account for video format
+
+  var date = new Date();
+
+  for (var i = 0; i < 3; i++) {
+
+    var media_type = '';
+    var title = '';
+    var img_url = '';
+    var explanation = '';
+    var copyright = '';
+
+    date.setDate(date.getDate() - 1);
+
+    var url = "https://api.nasa.gov/planetary/apod";
+    var data = {
+      date: date.toISOString().slice(0, 10),
+      api_key: "DEMO_KEY",
+    }
+
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      data: data,
+      success: function (data, status) {
+        media_type = data['media_type'];
+        title = data['title'];
+        img_url = data['url'];
+        explanation = data['explanation'];
+        copyright = data['copyright'];
+        console.log(data);
+      }
+    });
 
 
 
-  var new_el = $('<div/>');
+    var new_img = $('<img/>').addClass('card-img-top').attr('alt', title).attr('title', title).attr('src', img_url);
+    var new_card = $('<div/>').addClass('card');
+    var new_col = $('<div/>').addClass('col-xl-3 col-md-4 p-2 d-flex justify-content-center');
 
-  $('#item1').append(new_el);
+    new_col.append(new_card.append(new_img));
+    $('#photoList').append(new_col);
+  };
+
 
 </script>
